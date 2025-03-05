@@ -205,6 +205,10 @@ def route(request):
             search_radius=fuel_optimizer.search_radius
         )
         
+        # Get the host from the request
+        host = request.get_host()
+        scheme = request.scheme  # This will be 'http' or 'https'
+        
         # Prepare the response
         response_data = {
             'message': 'Route data fetched successfully.',
@@ -218,7 +222,7 @@ def route(request):
                 'total_cost': total_cost,
                 'mpg': fuel_optimizer.miles_per_gallon
             },
-            'map_url': f'/api/map/{map_id}/'
+            'map_url': f'{scheme}://{host}/api/map/{map_id}/'
         }
         
         return Response(response_data)
@@ -373,6 +377,10 @@ def route_by_name(request):
             search_radius=fuel_optimizer.search_radius
         )
         
+        # Get the host from the request
+        host = request.get_host()
+        scheme = request.scheme  # This will be 'http' or 'https'
+        
         # Prepare the response
         response_data = {
             'message': 'Route data fetched successfully.',
@@ -396,7 +404,7 @@ def route_by_name(request):
                 'total_cost': total_cost,
                 'mpg': fuel_optimizer.miles_per_gallon
             },
-            'map_url': f'/api/map/{map_id}/'
+            'map_url': f'{scheme}://{host}/api/map/{map_id}/'
         }
         
         return Response(response_data)
