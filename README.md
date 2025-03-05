@@ -47,6 +47,12 @@ A Django 3.2.23 API that calculates optimized travel routes within the USA, iden
    python manage.py migrate
    ```
 
+5. Populate fuel data:
+
+   ```
+   python manage.py populate_fuel_data
+   ```
+
 ## Running the Application
 
 Start the development server:
